@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="StyleSheet" href="/dtree.css" type="text/css" />
+    <script type="text/javascript" src="dtree.js"></script>
+</head>
+
+<body>
+    <h1>스텐다드 모터스 코리아</h1>
+
+    <%=list.length%> 값 나와라 제발<br>
+
+
+    <% for (i = 0 ; i <list.length; i++) { %>
+    i의 값은 : <%= i %> <br>
+    cid들의 값은 <%= list[i].cid %> <br>
+    얘네들의 이름은 <%= list[i].name %><br>
+
+    <% } %>
+
+
+
+
+
+
+    <div class="dtree">
+        <h2><a href="/">STANDARDMOTORSKOREA !!</a></h2><br>
+        <p><a href="javascript: d.openAll();">모두 열기</a> | <a href="javascript: d.closeAll();">모두 닫기</a></p>
+
+
+        <script type="text/javascript">
+
+        var rootnumber = -1;
+        d = new dTree('d');
+        d.add(0, rootnumber, 'LEXUS DATABASE TEST ');
+        d.add(1, 0, 'Lexus');
+
+        for (var i = 1; i <= <%=list.length%> ; i++) {
+
+          d.add(i+1, 1, '<%=list[0].cid %> <%=list[0].name %>');
+
+        }
+
+
+        document.write(d);
+        </script>
+    </div>
+</body>
+
+</html>
